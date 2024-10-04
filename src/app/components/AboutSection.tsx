@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useTransition } from 'react'
 import TabButton from './TabButton';
-import { title } from 'process';
 
 export enum ENUM_ABOUT_ME_TAB {
   SKILLS = 'Skills',
@@ -27,8 +26,8 @@ const TAB_DATA = [
     id: ENUM_ABOUT_ME_TAB.EDUCATION,
     content: (
       <ul className='list-disc pl-2'>
-        <li>Taylor's University</li>
-        <li>Manchester Metropolitan University</li>
+        <li>{`Taylor's University`}</li>
+        <li>{`Manchester Metropolitan University`}</li>
       </ul>
     )
   },
@@ -62,9 +61,9 @@ const AboutSection = () => {
           Adipisci minima rerum itaque magni nisi optio dolorum sunt incidunt vitae sed neque cupiditate, pariatur assumenda aspernatur, quod, aut sit sint qui dolor libero voluptas? Omnis sint ut fugiat fuga!</p>
       </div>
       <div className='flex flex-row justify-center'>
-        <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.SKILLS) }} active={tab === ENUM_ABOUT_ME_TAB.SKILLS} children={ENUM_ABOUT_ME_TAB.SKILLS} />
-        <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.EDUCATION) }} active={tab === ENUM_ABOUT_ME_TAB.EDUCATION} children={ENUM_ABOUT_ME_TAB.EDUCATION} />
-        <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.EXPERIENCE) }} active={tab === ENUM_ABOUT_ME_TAB.EXPERIENCE} children={ENUM_ABOUT_ME_TAB.EXPERIENCE} />
+        <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.SKILLS) }} active={tab === ENUM_ABOUT_ME_TAB.SKILLS}>{ENUM_ABOUT_ME_TAB.SKILLS}</TabButton>
+        <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.EDUCATION) }} active={tab === ENUM_ABOUT_ME_TAB.EDUCATION}>{ENUM_ABOUT_ME_TAB.EDUCATION}</TabButton>
+        <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.EXPERIENCE) }} active={tab === ENUM_ABOUT_ME_TAB.EXPERIENCE}>{ENUM_ABOUT_ME_TAB.EXPERIENCE}</TabButton>
       </div>
       <div className="flex flex-row justify-center mt-8">
         {isPending ? <div className="animate-pulse w-16 h-16 mx-auto" /> : TAB_DATA.find(tabData => tabData.id === tab)?.content}

@@ -1,7 +1,13 @@
 'use client';
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { GiftIcon, LinkIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+
+export interface ContactFormRequest {
+  email: string;
+  subject: string;
+  message: string;
+}
 
 const EmailSection = () => {
 
@@ -9,7 +15,7 @@ const EmailSection = () => {
 
   const onContactFormSubmitted = async (event: any) => {
     event.preventDefault();
-    const data: any = {
+    const data: ContactFormRequest = {
       email: event.target.email.value,
       subject: event.target.subject.value,
       message: event.target.message.value,
@@ -58,7 +64,7 @@ const EmailSection = () => {
           {/* Subject */}
           <div>
             <label htmlFor='subject' className='text-white block mb-2 text-small font-medium'>Subject</label>
-            <input type="text" name="subject" id="subject" required placeholder='Just saying Hello!' className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3' />
+            <input type="text" name="subject" id="subject" required placeholder='Subject' className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3' />
           </div>
           {/* Text Area */}
           <div>

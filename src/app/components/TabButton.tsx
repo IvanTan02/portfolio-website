@@ -1,3 +1,4 @@
+import { motion, Variants } from 'framer-motion';
 import React, { MouseEventHandler } from 'react'
 
 export interface TabButtonProps {
@@ -6,13 +7,19 @@ export interface TabButtonProps {
   children: React.ReactNode;
 }
 
+const variants: Variants = {
+  default: { width: 0 },
+  active: { width: 'calc(100% - 0.75rem)' }
+}
+
 const TabButton: React.FC<TabButtonProps> = ({ active, onTabChanged, children }) => {
 
-  const buttonClasses = active ? 'text-white border-b border-purple-500' : 'text-[#ADB7BE]';
+  const buttonClasses = active ? 'text-white' : 'text-[#ADB7BE]';
 
   return (
     <button onClick={onTabChanged}>
       <p className={`mr-10 font-semibold hover:text-white ${buttonClasses}`}>{children}</p>
+      <motion.div animate={active ? 'active' : 'default'} variants={variants} className='h-1 bg-primary-500 mt-2 mr-3'></motion.div>
     </button>
   )
 }

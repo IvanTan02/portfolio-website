@@ -1,7 +1,8 @@
 'use client';
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import ProjectCard from './ProjectCard';
 import ProjectTag from './ProjectTag';
+import { motion, useInView } from 'framer-motion';
 
 const projects = [
   {
@@ -36,12 +37,19 @@ const projects = [
 const ProjectSection = () => {
 
   const [tag, setTag] = useState('All');
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
 
   const onTagSelected = (tag: string) => {
     setTag(tag);
   }
 
   const filteredProjects = projects.filter((project) => project.category.includes(tag));
+
+  const cardVariants = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 }
+  }
 
   return (
     <section>
@@ -51,11 +59,13 @@ const ProjectSection = () => {
         <ProjectTag name={'Web'} onClick={onTagSelected} isSelected={tag === 'Web'} />
         <ProjectTag name={'Mobile'} onClick={onTagSelected} isSelected={tag === 'Mobile'} />
       </div>
-      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12'>
-        {filteredProjects.map((project) =>
-          (<ProjectCard key={project.id} title={project.title} description={project.description} imageUrl={project.image} githubUrl={project.githubUrl} />)
+      <ul ref={ref} className='grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12'>
+        {filteredProjects.map((project, index) =>
+        (<motion.li key={index} variants={cardVariants} initial='initial' animate={isInView ? 'animate' : 'initial'} transition={{ duration: 0.3, delay: index * 0.2 }}>
+          <ProjectCard key={project.id} title={project.title} description={project.description} imageUrl={project.image} githubUrl={project.githubUrl} />
+        </motion.li>)
         )}
-      </div>
+      </ul>
     </section>
   )
 }

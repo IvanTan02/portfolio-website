@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar_container}>
       <div className={`container ${styles.navbar}`}>
-        <Link href={'/'} className={`${styles.navbar_logo}`}>LOGO</Link>
+        <Link href={'/'} className={`${styles.navbar_logo}`}>IvanTan</Link>
 
         {/* Full Navbar Menu */}
         <div className='menu hidden md:block md:w-auto' id='navbar'>
@@ -34,9 +34,9 @@ const Navbar = () => {
         <div className="block md:hidden">
           {
             isNavbarOpened ?
-              (<button onClick={() => setIsNavbarOpened(false)} className={`${styles.burger_menu_button}`}><XMarkIcon className='h-5 w-5' /></button>)
+              (<button onClick={() => setIsNavbarOpened(false)} className={`${styles.burger_menu_button}`}><XMarkIcon className='h-6 w-6' /></button>)
               :
-              (<button onClick={() => setIsNavbarOpened(true)} className={`${styles.burger_menu_button}`}><Bars3Icon className='h-5 w-5' /></button>)
+              (<button onClick={() => setIsNavbarOpened(true)} className={`${styles.burger_menu_button}`}><Bars3Icon className='h-6 w-6' /></button>)
           }
         </div>
       </div>

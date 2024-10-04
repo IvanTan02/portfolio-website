@@ -8,17 +8,16 @@
 .navbar {
   @apply flex flex-wrap justify-between items-center;
   @apply mx-auto;
-  @apply px-4 py-4 lg:py-8;
+  @apply p-4 lg:p-8;
 }
 
 .navbar_logo {
-  @apply text-2xl md:text-5xl;
+  @apply text-2xl md:text-4xl;
   @apply text-white font-semibold;
 }
 
 .burger_menu_button {
   @apply flex items-center;
   @apply px-3 py-2;
-  @apply border rounded border-slate-200 hover:border-white;
-  @apply text-slate-200 hover:text-white;
+  @apply text-gray-400 hover:text-slate-300;
 }

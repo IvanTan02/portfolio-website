@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import React from 'react'
+import styles from './NavbarLink.module.css';
 
 export interface NavbarLinkProps {
   href: string;
-  title: string;
+  children: React.ReactNode;
+  openNewTab?: boolean;
 }
 
-const NavbarLink: React.FC<NavbarLinkProps> = ({ href, title }) => {
+const NavbarLink: React.FC<NavbarLinkProps> = ({ href, children, openNewTab }) => {
   return (
-    <Link href={href} className='block py-2 px-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white'>{title}</Link>
+    <Link target={openNewTab ? '_blank' : '_self'} href={href} className={`block ${styles.navbar_link}`}>{children}</Link>
   )
 }
 

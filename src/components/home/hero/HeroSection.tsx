@@ -28,7 +28,7 @@ const HeroSection = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className='text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6 text-justify'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis vero ipsam quos temporibus necessitatibus! Delectus maxime ducimus sint rem quo iusto quae mollitia voluptate eos nesciunt, nulla itaque quibusdam eligendi.</p>
+          <p className='text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6 text-justify' style={{ maxWidth: '90%' }}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis vero ipsam quos temporibus necessitatibus! Delectus maxime ducimus sint rem quo iusto quae mollitia voluptate eos nesciunt, nulla itaque quibusdam eligendi.</p>
           <div className="">
             <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 mb-4 sm:mb-0 bg-gradient-to-r from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-200 text-white'>Hire Me</button>
             <button className='px-1 py-1 w-full sm:w-fit rounded-full bg-transparent bg-gradient-to-r from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-800 text-white'>

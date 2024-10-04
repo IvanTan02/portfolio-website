@@ -11,14 +11,13 @@ export default function Home() {
     <main className="flex flex-col min-h-screen bg-[#121212]">
       <Navbar />
       <div className="container mt-24 mx-auto p-4">
-        <HeroSection />
-        <AchievementSection />
-        <AboutSection />
-        <ProjectSection />
-        <EmailSection />
-        <Footer />
+        <section id="hero"><HeroSection /></section>
+        <section id="achievements"><AchievementSection /></section>
+        <section id="about" style={{ scrollMarginTop: '120px' }}><AboutSection /></section>
+        <section id="projects" style={{ scrollMarginTop: '150px' }}><ProjectSection /></section>
+        <section id="contact"><EmailSection /></section>
       </div>
-
+      <Footer />
     </main>
   );
 }

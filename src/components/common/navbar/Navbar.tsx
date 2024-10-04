@@ -4,13 +4,20 @@ import React, { useState } from 'react'
 import NavbarLink, { NavbarLinkProps } from './NavbarLink'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import NavbarMenuOverlay from './NavbarMenuOverlay';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
+import { CONSTANTS } from '@/environments/constant';
 
 import styles from './Navbar.module.css';
 
 const navLinks: NavbarLinkProps[] = [
-  { title: 'About', href: '#about' },
-  { title: 'Projects', href: '#projects' },
-  { title: 'Contact', href: '#contact' },
+  { children: 'About', href: '#about' },
+  { children: 'Projects', href: '#projects' },
+  { children: 'Contact', href: '#contact' }
+];
+
+const socialLinks: NavbarLinkProps[] = [
+  { children: <AiFillGithub className='h-6 w-6' />, href: CONSTANTS.socialLinks.GitHub, openNewTab: true },
+  { children: <AiFillLinkedin className='h-6 w-6' />, href: CONSTANTS.socialLinks.LinkedIn, openNewTab: true }
 ]
 
 const Navbar = () => {
@@ -22,10 +29,13 @@ const Navbar = () => {
         <Link href={'/'} className={`${styles.navbar_logo}`}>IvanTan</Link>
 
         {/* Full Navbar Menu */}
-        <div className='menu hidden md:block md:w-auto' id='navbar'>
-          <ul className='flex p-4 md:p-0 md:flex-row items-center md:space-x-8'>
+        <div className='hidden md:block md:w-auto' id='navbar'>
+          <ul className='flex md:flex-row items-center space-x-8'>
             {navLinks.map((navLink, index) =>
-              (<li key={index}><NavbarLink href={navLink.href} title={navLink.title} /></li>)
+              (<li key={index}><NavbarLink href={navLink.href} openNewTab={navLink.openNewTab}>{navLink.children}</NavbarLink></li>)
+            )}
+            {socialLinks.map((navLink, index) =>
+              (<li key={index}><NavbarLink href={navLink.href} openNewTab={navLink.openNewTab}>{navLink.children}</NavbarLink></li>)
             )}
           </ul>
         </div>
@@ -41,7 +51,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Mobile Navbar Menu Overlay */}
-      {isNavbarOpened ? <NavbarMenuOverlay navLinks={navLinks} /> : null}
+      {isNavbarOpened ? <NavbarMenuOverlay navLinks={navLinks} socialLinks={socialLinks} /> : null}
     </nav>
   )
 }

@@ -1,0 +1,4 @@
+.navbar_link {
+  @apply py-2 px-4;
+  @apply text-[#ADB7BE] text-xl hover:text-white;
+}

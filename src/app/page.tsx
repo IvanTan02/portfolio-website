@@ -1,10 +1,10 @@
-import HeroSection from "./components/HeroSection";
-import Navbar from "./components/Navbar";
-import AboutSection from "./components/AboutSection";
-import ProjectSection from "./components/ProjectSection";
-import EmailSection from "./components/EmailSection";
-import Footer from "./components/Footer";
-import AchievementSection from "./components/AchievementSection";
+import Footer from "@/components/common/footer/Footer";
+import Navbar from "@/components/common/navbar/Navbar";
+import AboutSection from "@/components/home/about/AboutSection";
+import AchievementSection from "@/components/home/achievements/AchievementSection";
+import EmailSection from "@/components/home/email/EmailSection";
+import HeroSection from "@/components/home/hero/HeroSection";
+import ProjectSection from "@/components/home/projects/ProjectSection";
 
 export default function Home() {
   return (

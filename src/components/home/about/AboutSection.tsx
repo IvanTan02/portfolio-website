@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useTransition } from 'react'
-import TabButton from './TabButton';
+import TabButton from '../../common/TabButton';
 
 export enum ENUM_ABOUT_ME_TAB {
   SKILLS = 'Skills',

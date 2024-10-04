@@ -1,0 +1,24 @@
+.navbar_container {
+  @apply fixed top-0 left-0 right-0 z-10;
+  @apply border border-transparent border-b-app-gray-2;
+  @apply bg-app-gray-1 bg-opacity-100;
+  margin: 0 auto;
+}
+
+.navbar {
+  @apply flex flex-wrap justify-between items-center;
+  @apply mx-auto;
+  @apply px-4 py-4 lg:py-8;
+}
+
+.navbar_logo {
+  @apply text-2xl md:text-5xl;
+  @apply text-white font-semibold;
+}
+
+.burger_menu_button {
+  @apply flex items-center;
+  @apply px-3 py-2;
+  @apply border rounded border-slate-200 hover:border-white;
+  @apply text-slate-200 hover:text-white;
+}

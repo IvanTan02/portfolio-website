@@ -17,7 +17,9 @@ const config: Config = {
     colors: {
       ...colors,
       primary: colors.purple,
-      secondary: colors.pink
+      secondary: colors.pink,
+      'app-gray-1': '#121212',
+      'app-gray-2': '#33353F'
     }
   },
   plugins: [],

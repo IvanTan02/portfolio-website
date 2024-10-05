@@ -73,7 +73,7 @@ const EmailSection = () => {
               <textarea name="message" id="message" required placeholder='Hello!' className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3' />
             </div>
             {/* Submit */}
-            <button type='submit' className='bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 px-5 rounded-lg w-full'>Send Message</button>
+            <button type="submit" className="btn btn-primary font-semibold">Send Message</button>
             {
               isFormSubmitted && (
                 <p className='text-green-500 text-sm mt-2'>Email Sent Successfully!</p>

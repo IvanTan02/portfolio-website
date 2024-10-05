@@ -24,7 +24,7 @@ const Navbar = () => {
   const [isNavbarOpened, setIsNavbarOpened] = useState(false);
 
   return (
-    <nav className={styles.navbar_container}>
+    <nav className={`${styles.navbar_container}`}>
       <div className={`container ${styles.navbar}`}>
         <Link href={'/'} className={`${styles.navbar_logo}`}>IvanTan</Link>
 

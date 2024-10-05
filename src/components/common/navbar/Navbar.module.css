@@ -1,7 +1,7 @@
 .navbar_container {
   @apply fixed top-0 left-0 right-0 z-10;
-  @apply border border-transparent border-b-app-gray-2;
-  @apply bg-app-gray-1 bg-opacity-100;
+  @apply border border-transparent border-b-neutral;
+  @apply bg-base-100 bg-opacity-100;
   margin: 0 auto;
 }
 

@@ -1,50 +1,51 @@
-'use client';
-import React from 'react'
-import Image from 'next/image'
+"use client";
+import React from "react"
+import Image from "next/image"
 
-import { TypeAnimation } from 'react-type-animation';
-import { motion } from 'framer-motion';
-import { CONSTANTS } from '@/environments/constant';
-import Link from 'next/link';
+import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
+import { CONSTANTS } from "@/environments/constant";
+import Link from "next/link";
+import { FaDownload, FaComments } from "react-icons/fa6";
+import styles from "./HeroSection.module.css";
 
 const HeroSection = () => {
   return (
-    <section className='lg:py-16'>
-      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className='grid grid-cols-1 md:grid-cols-12'>
+    <section className="lg:py-16">
+      <motion.div initial={{ opacity: 0, scale: 0.5 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5 }} className="grid grid-cols-1 lg:grid-cols-12">
 
-        {/* Hero Text */}
-        <div className='col-span-8 place-self-center text-center sm:text-left justify-self-start'>
-          <h1 className='text-white mb-4 text-4xl sm:text-5xl lg:text-6xl lg:leading-normal font-extrabold'>
-            <div className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-secondary hover:bg-slate-200">{`Hello, I'm Ivan`}</div>
-            <TypeAnimation
-              sequence={[
-                'Web Developer',
-                2000,
-                'Entrepreneur',
-                2000,
-                'Chelsea FC Fan',
-                2000,
-              ]}
-              wrapper="span"
-              speed={30}
-              repeat={Infinity}
-            />
-          </h1>
-          <p className='text-[#ADB7BE] text-base sm:text-lg lg:text-xl mb-6 text-justify' style={{ maxWidth: '90%' }}>{CONSTANTS.heroContent.summary}</p>
-          <div className="">
-            {/* <button className='px-6 py-3 w-full sm:w-fit rounded-full mr-4 mb-4 sm:mb-0 bg-gradient-to-r from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-200 text-white'>Hire Me</button> */}
-            {/* <button className='px-1 py-1 w-full sm:w-fit rounded-full bg-transparent bg-gradient-to-r from-blue-500 via-primary-500 to-secondary-500 hover:bg-slate-800 text-white'>
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">Download CV</span>
-            </button> */}
-            <button className="btn btn-outline btn-wide btn-primary rounded-2xl mr-5"><Link href="#contact">Get In Contact</Link></button>
-            <button className="btn btn-outline btn-wide btn-secondary rounded-2xl">Download CV</button>
+        {/* Personal Portrait */}
+        <div className="col-span-4 mb-10 lg:mb-0">
+          <div className="flex justify-center items-center">
+            <Image className="rounded-badge w-[200px] h-[200px] md:w-[250px] md:h-[250px] xl:w-[320px] xl:h-[320px] shadow-2xl" src="/images/profile-picture.jpg" alt="Portrait of Ivan Tan" width={300} height={500} />
           </div>
         </div>
 
-        {/* Personal Portrait */}
-        <div className='col-span-4 mt-10 lg:mt-0'>
-          <div className='flex justify-center items-center h-[250px] w-[250px] lg:h-[400px] lg:w-[400px]'>
-            <Image className='rounded-full' src='/images/profile-picture.jpg' alt='Portrait of Ivan Tan' width={300} height={500} />
+        {/* Hero Text */}
+        <div className={`col-span-8 ${styles.hero_text_container}`}>
+          <h1 className={`${styles.hero_title_container} mb-8`}>
+            <div className={`${styles.hero_title} mb-2`}>{CONSTANTS.heroContent.heroTitle}</div>
+            <TypeAnimation sequence={CONSTANTS.heroContent.typeAnimationSequence} wrapper="span" speed={30} repeat={Infinity} />
+          </h1>
+          <p className={`${styles.hero_summary} mb-8`}>{CONSTANTS.heroContent.summary}</p>
+          <div className="">
+
+            <Link target="_blank" href={CONSTANTS.socialLinks.Resume}>
+              <button className="btn btn-outline btn-wide btn-primary rounded-2xl mr-5">
+                <div className="flex flex-row justify-center items-center">
+                  <FaDownload className="mr-3" />
+                  <p>Download CV</p>
+                </div>
+              </button>
+            </Link>
+            <Link href="#contact">
+              <button className="btn btn-outline btn-wide btn-secondary rounded-2xl">
+                <div className="flex flex-row justify-center items-center">
+                  <FaComments className="mr-3" />
+                  <p>Get In Contact</p>
+                </div>
+              </button>
+            </Link>
           </div>
         </div>
       </motion.div>

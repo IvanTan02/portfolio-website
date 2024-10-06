@@ -27,11 +27,10 @@ const HeroSection = () => {
             <div className={`${styles.hero_title} mb-2`}>{CONSTANTS.heroContent.heroTitle}</div>
             <TypeAnimation sequence={CONSTANTS.heroContent.typeAnimationSequence} wrapper="span" speed={30} repeat={Infinity} />
           </h1>
-          <p className={`${styles.hero_summary} mb-8`}>{CONSTANTS.heroContent.summary}</p>
-          <div className="">
-
-            <Link target="_blank" href={CONSTANTS.socialLinks.Resume}>
-              <button className="btn btn-outline btn-wide btn-primary rounded-2xl mr-5">
+          <p className={`${styles.hero_summary} mb-8 px-5 lg:pl-0`}>{CONSTANTS.heroContent.summary}</p>
+          <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center">
+            <Link className="mr-0 mb-3 md:mr-3 md:mb-0" target="_blank" href={CONSTANTS.socialLinks.Resume}>
+              <button className="btn btn-outline btn-wide btn-primary rounded-2xl">
                 <div className="flex flex-row justify-center items-center">
                   <FaDownload className="mr-3" />
                   <p>Download CV</p>

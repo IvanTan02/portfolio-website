@@ -4,7 +4,7 @@
 }
 
 .hero_title_container {
-  @apply text-4xl md:text-5xl lg:text-6xl text-white font-extrabold;
+  @apply text-3xl md:text-4xl lg:text-5xl text-white font-extrabold;
 }
 
 .hero_title {
@@ -13,5 +13,5 @@
 }
 
 .hero_summary {
-  @apply text-base md:text-lg lg:text-xl text-justify text-neutral-content
+  @apply text-base md:text-lg xl:text-xl text-justify text-neutral-content;
 }

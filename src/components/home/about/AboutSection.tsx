@@ -55,19 +55,22 @@ const AboutSection = () => {
 
   return (
     <section className='text-white'>
-      <div className="flex flex-col justify-center items-center py-8 px-4 sm:py-16 xl:px-16">
-        <h2 className='text-4xl font-bold mb-4'>About Me</h2>
-        <p className='text-base lg:text-lg'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum commodi asperiores aliquid ab sint! Iusto debitis minima rem doloribus atque eaque possimus unde ab. Error facere libero adipisci nisi consequatur.
-          Adipisci minima rerum itaque magni nisi optio dolorum sunt incidunt vitae sed neque cupiditate, pariatur assumenda aspernatur, quod, aut sit sint qui dolor libero voluptas? Omnis sint ut fugiat fuga!</p>
+      <div className="flex flex-col justify-center items-center">
+        <h2 className='w-full text-center text-4xl font-bold border border-transparent border-b-neutral mb-5 pb-4'>Skills</h2>
+      </div>
+      {/* <div role="tablist" className="tabs tabs-lifted">
+        <a role="tab" onClick={() => { onTabChanged(ENUM_ABOUT_ME_TAB.SKILLS) }} className={`tab ${tab === ENUM_ABOUT_ME_TAB.SKILLS }`}>Tab 1</a>
+        <a role="tab" className="tab tab-active">Tab 2</a>
+        <a role="tab" className="tab">Tab 3</a>
       </div>
       <div className='flex flex-row justify-center'>
         <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.SKILLS) }} active={tab === ENUM_ABOUT_ME_TAB.SKILLS}>{ENUM_ABOUT_ME_TAB.SKILLS}</TabButton>
         <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.EDUCATION) }} active={tab === ENUM_ABOUT_ME_TAB.EDUCATION}>{ENUM_ABOUT_ME_TAB.EDUCATION}</TabButton>
         <TabButton onTabChanged={() => { onTabChanged(ENUM_ABOUT_ME_TAB.EXPERIENCE) }} active={tab === ENUM_ABOUT_ME_TAB.EXPERIENCE}>{ENUM_ABOUT_ME_TAB.EXPERIENCE}</TabButton>
-      </div>
-      <div className="flex flex-row justify-center mt-8">
+      </div> */}
+      {/* <div className="flex flex-row justify-center mt-8">
         {isPending ? <div className="animate-pulse w-16 h-16 mx-auto" /> : TAB_DATA.find(tabData => tabData.id === tab)?.content}
-      </div>
+      </div> */}
     </section>
   )
 }

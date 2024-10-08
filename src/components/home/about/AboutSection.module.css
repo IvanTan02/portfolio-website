@@ -1,0 +1,10 @@
+.about_me_title {
+  @apply w-full mb-5;
+  @apply text-neutral-content text-center text-4xl font-bold;
+}
+
+.about_me_text {
+  @apply text-neutral-content text-base md:text-lg lg:text-xl text-justify;
+  @apply border-2 border-transparent border-t-neutral;
+  line-height: 2em;
+}

@@ -8,7 +8,7 @@ export const CONSTANTS = {
     Resume: `https://ivantan-portfolio.s3.ap-southeast-2.amazonaws.com/IvanTan-Resume.pdf`
   },
   heroContent: {
-    heroTitle: `Hello, I'm Ivan!`,
+    heroTitle: `Hello, I'm Ivan Tan`,
     typeAnimationSequence: [
       'Software Engineer',
       HERO_TYPE_ANIMATION_INTERVAL,
@@ -55,11 +55,6 @@ export const MY_SKILLS: Skills[] = [
   },
   {
     title: 'Dart',
-    logoUrl: './images/typescript.png',
-    category: [ENUM_SKILL_CATEGORY.LANGUAGES]
-  },
-  {
-    title: 'Python',
     logoUrl: './images/typescript.png',
     category: [ENUM_SKILL_CATEGORY.LANGUAGES]
   },

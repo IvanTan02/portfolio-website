@@ -17,17 +17,16 @@ const HeroSection = () => {
         {/* Personal Portrait */}
         <div className="col-span-4 mb-10 lg:mb-0">
           <div className="flex justify-center items-center">
-            <Image className="rounded-badge w-[200px] h-[200px] md:w-[250px] md:h-[250px] xl:w-[320px] xl:h-[320px] shadow-2xl" src="/images/profile-picture.jpg" alt="Portrait of Ivan Tan" width={300} height={500} />
+            <Image className="rounded-badge w-[200px] h-[200px] md:w-[250px] md:h-[250px] xl:w-[300px] xl:h-[300px] shadow-2xl" src="/images/profile-picture.jpg" alt="Portrait of Ivan Tan" width={300} height={500} />
           </div>
         </div>
 
         {/* Hero Text */}
-        <div className={`col-span-8 ${styles.hero_text_container}`}>
+        <div className={`col-span-8 lg:ms-5 w-full ${styles.hero_text_container}`}>
           <h1 className={`${styles.hero_title_container} mb-8`}>
             <div className={`${styles.hero_title} mb-2`}>{CONSTANTS.heroContent.heroTitle}</div>
             <TypeAnimation sequence={CONSTANTS.heroContent.typeAnimationSequence} wrapper="span" speed={30} repeat={Infinity} />
           </h1>
-          <p className={`${styles.hero_summary} mb-8 px-5 lg:pl-0`}>{CONSTANTS.heroContent.summary}</p>
           <div className="flex flex-col md:flex-row justify-center lg:justify-start items-center">
             <Link className="mr-0 mb-3 md:mr-3 md:mb-0" target="_blank" href={CONSTANTS.socialLinks.Resume}>
               <button className="btn btn-outline btn-wide btn-primary rounded-2xl">

@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <main className="flex flex-col min-h-screen bg-base-300">
       <Navbar />
-      <div className="container mt-24 mx-auto px-2">
-        <section id="hero" className="my-16"><HeroSection /></section>
+      <div className="container mx-auto">
+        <section id="hero" className="min-h-screen flex flex-col justify-center items-center"><HeroSection /></section>
         <section id="about" className="mb-16" style={{ scrollMarginTop: '120px' }}><AboutSection /></section>
         <section id="projects" style={{ scrollMarginTop: '150px' }}><ProjectSection /></section>
         <section id="contact"><EmailSection /></section>

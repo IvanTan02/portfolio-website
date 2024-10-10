@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Ivan Tan",
+  title: "Portfolio | Ivan Tan",
   description: "Portfolio website of Ivan Tan.",
 };
 

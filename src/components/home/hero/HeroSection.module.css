@@ -8,10 +8,24 @@
 }
 
 .hero_title {
-  @apply text-transparent;
-  @apply bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-secondary;
+  @apply text-neutral-content;
+}
+
+.hero_subtitle {
+  @apply text-neutral-content;
+}
+
+.hero_animated_text {
+  @apply text-neutral-content;
+  @apply text-2xl lg:text-3xl;
+  @apply font-medium;
 }
 
 .hero_summary {
   @apply text-base md:text-lg xl:text-xl text-justify text-neutral-content;
+}
+
+.gradient_text {
+  @apply text-transparent;
+  @apply bg-clip-text bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500;
 }

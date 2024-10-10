@@ -25,8 +25,8 @@ const Navbar = () => {
 
   return (
     <nav className={`${styles.navbar_container}`}>
-      <div className={`container ${styles.navbar}`}>
-        <Link href={'/'} className={`${styles.navbar_logo}`}>IvanTan</Link>
+      <div className={`${styles.navbar}`}>
+        <Link href={'/'} className={`${styles.navbar_logo}`}>@IvanTan</Link>
 
         {/* Full Navbar Menu */}
         <div className='hidden md:block md:w-auto' id='navbar'>

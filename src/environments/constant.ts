@@ -8,13 +8,13 @@ export const CONSTANTS = {
     Resume: `https://ivantan-portfolio.s3.ap-southeast-2.amazonaws.com/IvanTan-Resume.pdf`
   },
   heroContent: {
-    heroTitle: `Hello, I'm Ivan Tan`,
+    heroTitle: `Hello, I'm Ivan`,
     typeAnimationSequence: [
-      'Software Engineer',
+      'I build modern frontends with Angular and React',
       HERO_TYPE_ANIMATION_INTERVAL,
-      'Web Developer',
+      'I build mobile apps with Flutter',
       HERO_TYPE_ANIMATION_INTERVAL,
-      'Mobile Developer',
+      'I build full stack apps with Next.js',
       HERO_TYPE_ANIMATION_INTERVAL,
     ],
     summary: `As a recent Computer Science graduate, I’m passionate about building innovative applications that enhance everyday life. With a solid foundation in software engineering and a passion for problem-solving, I’m always eager to explore new technologies and develop projects that push the boundaries of what’s possible. My dedication towards delivering high-quality work, coupled with my ability to quickly adapt to emerging technologies, makes me a valuable asset to any team.`

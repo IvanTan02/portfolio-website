@@ -1,10 +1,56 @@
 .about_me_title {
-  @apply w-full mb-5;
-  @apply text-neutral-content text-center text-4xl font-bold;
+  @apply text-neutral-content text-center text-5xl font-semibold;
+  @apply pb-4 mb-2;
+  @apply border-2 border-transparent border-b-neutral;
+  width: 100%;
 }
 
 .about_me_text {
   @apply text-neutral-content text-base md:text-lg lg:text-xl text-justify;
-  @apply border-2 border-transparent border-t-neutral;
   line-height: 2em;
+  width: 95%;
+}
+
+.timeline_item {
+  width: 25%;
+}
+
+.timeline_line {
+  height: 0.1em !important;
+}
+
+.timeline_timeframe {
+  @apply font-semibold;
+  @apply mb-2;
+}
+
+.timeline_icon {
+  @apply border border-primary rounded-full;
+  @apply p-3;
+}
+
+.timeline_description {
+  @apply text-center font-semibold;
+  @apply p-4 mx-5 mb-5 lg:mb-0;
+}
+
+@media(max-width: 1280px) {
+  .timeline_container {
+    @apply -mt-10;
+  }
+}
+
+@media(max-width: 1024px) {
+  .timeline_container {
+    @apply mt-10;
+  }
+
+  .timeline_item {
+    width: 100%;
+  }
+
+  .timeline_line {
+    height: 2em !important;
+    width: 0.1em !important;
+  }
 }

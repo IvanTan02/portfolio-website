@@ -8,7 +8,7 @@ const timelineItems = [
   { timeframe: 'Apr 2024', icon: <FaBolt />, description: `First experience in the industry at my internship` },
   { timeframe: 'Aug 2024', icon: <FaGraduationCap />, description: `Graduated with a Bachelor's Degree in Computer Science` },
   { timeframe: 'Present', icon: <FaLaptopCode />, description: `Started my journey as a software engineer` },
-]
+];
 
 const AboutSection = () => {
   return (

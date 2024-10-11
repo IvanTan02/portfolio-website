@@ -10,7 +10,7 @@ export interface NavbarLinkProps {
 
 const NavbarLink: React.FC<NavbarLinkProps> = ({ href, children, openNewTab }) => {
   return (
-    <Link target={openNewTab ? '_blank' : '_self'} href={href} className={`block ${styles.navbar_link}`}>{children}</Link>
+    <a target={openNewTab ? '_blank' : '_self'} href={href} className={`block ${styles.navbar_link}`}>{children}</a>
   )
 }
 

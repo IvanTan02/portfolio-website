@@ -1,35 +1,50 @@
 import React from 'react'
 import { CodeBracketIcon, EyeIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import Image from 'next/image';
+import { AiOutlineGithub } from 'react-icons/ai';
+import styles from './ProjectCard.module.css'
 
 export interface ProjectCardProps {
   imageUrl: string;
   title: string;
   description: string;
+  technologiesUsed: string[];
   githubUrl?: string;
   previewUrl?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, title, description, githubUrl, previewUrl }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, title, description, technologiesUsed, githubUrl, previewUrl }) => {
   return (
-    <div>
-      <div className='h-52 md:h-72 max-h-52 md:max-h-72 rounded-t-xl relative group' style={{ background: `url(${imageUrl})`, backgroundSize: 'cover' }}>
+    <div className="card bg-base-100 shadow-xl">
+      <figure className="group relative">
+        <Image src={imageUrl} alt={title} width={500} height={300} />
         {/* Overlay */}
-        {(githubUrl || previewUrl) && <div className="justify-center items-center absolute top-0 left-0 w-full h-full bg-[#181818] bg-opacity-0 hidden group-hover:flex group-hover:bg-opacity-80 transition-all duration-500">
-          {githubUrl && <Link href={githubUrl} className='group/link h-14 w-14 mr-5 border-2 relative rounded-full border-[#ADB7BE] hover:border-white'>
-            <CodeBracketIcon className="h-10 w-10 text-[#ADB7BE] cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover/link:text-white" />
+        {(githubUrl || previewUrl) && <div className={`hidden group-hover:flex group-hover:bg-opacity-80 ${styles.overlay}`}>
+          {githubUrl && <Link href={githubUrl} target="_blank" className={`group/link mr-5 ${styles.overlay_link}`}>
+            <AiOutlineGithub className={`${styles.overlay_link_icon}`} />
           </Link>}
-          {previewUrl && <Link href={previewUrl} className='group/link h-14 w-14 border-2 relative rounded-full border-[#ADB7BE] hover:border-white'>
-            <EyeIcon className="h-10 w-10 text-[#ADB7BE] cursor-pointer absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 group-hover/link:text-white" />
+          {previewUrl && <Link href={previewUrl} className={`group/link ${styles.overlay_link}`}>
+            <EyeIcon className={`${styles.overlay_link_icon}`} />
           </Link>}
         </div>}
-      </div>
-      <div className='text-white rounded-b-xl pt-5 bg-[#181818] py-6 px-4'>
-        <h5 className='font-xl font-semibold mb-2'>{title}</h5>
-        <p className='text-[#ADB7BE]'>{description}</p>
+      </figure>
+      <div className="card-body flex flex-col justify-between items-center" style={{ height: '300px' }}>
+        <div className="w-full">
+          <h2 className={`card-title ${styles.card_title}`}>{title}</h2>
+          <p className={`${styles.card_description}`}>{description}</p>
+        </div>
+        <div className={`card-actions ${styles.technologies_used}`}>
+          {
+            technologiesUsed.map((tech, index) => {
+              return <div key={index} className="badge badge-neutral badge-md">{tech}</div>
+            })
+          }
+        </div>
       </div>
     </div>
   )
 }
 
 export default ProjectCard
+

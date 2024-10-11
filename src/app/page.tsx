@@ -13,7 +13,7 @@ export default function Home() {
         <section id="hero" className="flex flex-col justify-center items-center" style={{ marginTop: '15em', marginBottom: '12em' }}><HeroSection /></section>
         <section id="about" style={{ marginBottom: '12em' }}><AboutSection /></section>
         <section id="projects" style={{ marginBottom: '12em' }}><ProjectSection /></section>
-        <section id="contact" style={{ marginBottom: '6em' }}><EmailSection /></section>
+        {/* <section id="contact" style={{ marginBottom: '6em' }}><EmailSection /></section> */}
       </div>
       <Footer />
     </main>

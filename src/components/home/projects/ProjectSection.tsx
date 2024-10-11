@@ -72,10 +72,10 @@ const ProjectSection = () => {
         <ProjectTag name={'Web'} onClick={onTagSelected} isSelected={tag === 'Web'} />
         <ProjectTag name={'Mobile'} onClick={onTagSelected} isSelected={tag === 'Mobile'} />
       </div> */}
-      <ul ref={ref} className='flex flex-row gap-8 md:gap-12 justify-between items-stretch flex-wrap'>
+      <ul ref={ref} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {projects.map((project, index) =>
         (<motion.li key={index} variants={cardVariants} initial='initial' animate={isInView ? 'animate' : 'initial'} transition={{ duration: 0.3, delay: index * 0.2 }}>
-          <div className="w-96 flex flex-col">
+          <div className="col-span-1 px-8 py-4">
             <ProjectCard key={index} title={project.title} description={project.description} technologiesUsed={project.technologiesUsed} imageUrl={project.image} githubUrl={project.githubUrl} />
           </div>
         </motion.li>)

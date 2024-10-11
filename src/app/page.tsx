@@ -12,8 +12,8 @@ export default function Home() {
       <div className="container mx-auto">
         <section id="hero" className="flex flex-col justify-center items-center" style={{ marginTop: '15em', marginBottom: '12em' }}><HeroSection /></section>
         <section id="about" style={{ marginBottom: '12em' }}><AboutSection /></section>
-        <section id="projects"><ProjectSection /></section>
-        <section id="contact"><EmailSection /></section>
+        <section id="projects" style={{ marginBottom: '12em' }}><ProjectSection /></section>
+        <section id="contact" style={{ marginBottom: '6em' }}><EmailSection /></section>
       </div>
       <Footer />
     </main>

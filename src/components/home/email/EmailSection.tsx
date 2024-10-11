@@ -2,6 +2,8 @@
 import React, { FormEvent, useState } from 'react'
 import { GiftIcon, LinkIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
+import styles from './EmailSection.module.css';
+import { FaCheck, FaEnvelope } from 'react-icons/fa6';
 
 export interface ContactFormRequest {
   email: string;
@@ -36,44 +38,35 @@ const EmailSection = () => {
   }
 
   return (
-    <section>
-      <h2 className='text-center text-4xl font-bold text-white mt-20'>Contact Me</h2>
-      <div className='grid md:grid-cols-2 my-12 gap-4 relative'>
-        <div>
-          <h5 className='text-xl font-bold text-white my-2'>{`Let's Connect`}</h5>
-          <p className='text-[#ADB7BE] mb-4 max-w-md'>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae quos dolore ipsum iusto ducimus blanditiis eum possimus. Vel sint doloremque animi! Nam, expedita officiis in necessitatibus fugit adipisci fuga autem.
-          </p>
-          {/* Socials */}
-          <div className='flex flex-row gap-2'>
-            <Link href='https://github.com/IvanTan02'>
-              <GiftIcon className='h-6 w-6 text-white' />
-            </Link>
-            <Link href='https://www.linkedin.com/in/ivantan02/'>
-              <LinkIcon className='h-6 w-6 text-white' />
-            </Link>
-          </div>
-        </div>
+    <section className="text-neutral-content w-full px-10 lg:px-24">
+      <h2 className="section-title">Contact Me</h2>
+      <div className='flex justify-center'>
         {/* Email Form */}
-        <div>
+        <div className={`${styles.contact_form}`}>
           <form className='flex flex-col gap-6' onSubmit={onContactFormSubmitted}>
             {/* Email */}
             <div>
-              <label htmlFor='email' className='text-white block mb-2 text-small font-medium'>Your email</label>
-              <input type="email" name="email" id="email" required placeholder='your-email@mail.com' className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3' />
+              <label htmlFor='email' className={`${styles.form_label}`}>Your email</label>
+              <label className="input input-bordered flex items-center gap-2">
+                <FaEnvelope className="text-primary mr-2" />
+                <input id="email" type="email" className="grow" placeholder="johndoe@mail.com" />
+              </label>
             </div>
             {/* Subject */}
             <div>
-              <label htmlFor='subject' className='text-white block mb-2 text-small font-medium'>Subject</label>
-              <input type="text" name="subject" id="subject" required placeholder='Subject' className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3' />
+              <label htmlFor='subject' className={`${styles.form_label}`}>Subject</label>
+              <label className="input input-bordered flex items-center gap-2">
+                <FaCheck className="text-primary mr-2" />
+                <input id="subject" type="text" className="grow" placeholder="Subject" />
+              </label>
             </div>
             {/* Text Area */}
             <div>
-              <label htmlFor='message' className='text-white block mb-2 text-small font-medium'>Message</label>
-              <textarea name="message" id="message" required placeholder='Hello!' className='bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-3' />
+              <label htmlFor="message" className={`${styles.form_label}`}>Message</label>
+              <textarea id="message" className="textarea textarea-bordered w-full text-base" placeholder="Send me your deepest darkest secrets!"></textarea>
             </div>
             {/* Submit */}
-            <button type="submit" className="btn btn-primary font-semibold">Send Message</button>
+            <button type="submit" className="btn btn-outline btn-primary font-semibold mt-3">Send Message</button>
             {
               isFormSubmitted && (
                 <p className='text-green-500 text-sm mt-2'>Email Sent Successfully!</p>

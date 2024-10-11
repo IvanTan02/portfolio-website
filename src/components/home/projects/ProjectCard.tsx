@@ -29,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, title, description,
           </Link>}
         </div>}
       </figure>
-      <div className="card-body flex flex-col justify-between items-center" style={{ height: '300px' }}>
+      <div className="card-body flex flex-col justify-between items-center">
         <div className="w-full">
           <h2 className={`card-title ${styles.card_title}`}>{title}</h2>
           <p className={`${styles.card_description}`}>{description}</p>

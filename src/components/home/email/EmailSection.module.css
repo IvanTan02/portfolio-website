@@ -1,0 +1,15 @@
+
+.form_label {
+  @apply block mb-3;
+  @apply text-neutral-content text-xl font-normal;
+}
+
+.contact_form {
+  width: 60%;
+}
+
+@media (max-width: 1024px) {
+  .contact_form {
+    width: 80%;
+  }
+}

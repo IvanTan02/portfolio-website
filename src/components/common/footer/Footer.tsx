@@ -1,11 +1,11 @@
 import React from 'react'
+import { FaLaughBeam } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className='footer border border-transparent border-t-[#33353F] text-white'>
-      <div className='px-10 py-8 flex justify-between'>
-        <span>LOGO</span>
-        <p>All rights reserved.</p>
+    <footer className='w-full bg-base-100 text-neutral-content'>
+      <div className='px-16 py-8 flex justify-center items-center'>
+        <p>Thanks for scrolling <span><FaLaughBeam className="inline ms-1 h-5 w-5" /></span></p>
       </div>
     </footer>
   )

@@ -16,12 +16,6 @@ const AboutSection = () => {
       <div className="flex flex-col justify-center items-center w-full">
         <h2 className={styles.about_me_title}>About Me</h2>
       </div>
-      <div className="flex flex-row justify-center items-center mt-8">
-        {/* Summary */}
-        <div className={`${styles.about_me_text}`}>
-          {CONSTANTS.heroContent.summary}
-        </div>
-      </div>
       {/* Timeline */}
       <ul className={`timeline timeline-vertical lg:timeline-horizontal ${styles.timeline_container}`}>
         {
@@ -40,6 +34,13 @@ const AboutSection = () => {
           })
         }
       </ul>
+      <div className="flex flex-row justify-center items-center mt-16">
+        {/* Summary */}
+        <div className={`${styles.about_me_text}`}>
+          {CONSTANTS.heroContent.summary}
+        </div>
+      </div>
+
 
     </section>
   )

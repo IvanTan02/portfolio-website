@@ -8,11 +8,12 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { CONSTANTS } from '@/environments/constant';
 
 import styles from './Navbar.module.css';
+import { FaCode } from 'react-icons/fa';
 
 const navLinks: NavbarLinkProps[] = [
-  { children: 'About', href: '#about' },
+  { children: 'About Me', href: '#about' },
   { children: 'Projects', href: '#projects' },
-  { children: 'Contact', href: '#contact' }
+  // { children: 'Contact', href: '#contact' }
 ];
 
 const socialLinks: NavbarLinkProps[] = [
@@ -26,11 +27,11 @@ const Navbar = () => {
   return (
     <nav className={`${styles.navbar_container}`}>
       <div className={`${styles.navbar}`}>
-        <Link href={'/'} className={`${styles.navbar_logo}`}>@IvanTan</Link>
+        <Link href={'/'} className={`${styles.navbar_logo}`}><FaCode /></Link>
 
         {/* Full Navbar Menu */}
         <div className='hidden md:block md:w-auto' id='navbar'>
-          <ul className='flex md:flex-row items-center space-x-8'>
+          <ul className='flex md:flex-row items-center space-x-2'>
             {navLinks.map((navLink, index) =>
               (<li key={index}><NavbarLink href={navLink.href} openNewTab={navLink.openNewTab}>{navLink.children}</NavbarLink></li>)
             )}

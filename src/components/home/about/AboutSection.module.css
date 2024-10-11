@@ -34,12 +34,6 @@
   @apply p-4 mx-5 mb-5 lg:mb-0;
 }
 
-@media(max-width: 1280px) {
-  .timeline_container {
-    @apply -mt-10;
-  }
-}
-
 @media(max-width: 1024px) {
   .timeline_container {
     @apply mt-10;

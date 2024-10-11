@@ -30,6 +30,24 @@ body {
   }
 }
 
+.hero-container {
+  @apply flex flex-col justify-center items-center;
+  margin-top: 12em;
+}
+
+.section-container {
+  margin-bottom: 12em;
+}
+
 .section-title {
   @apply text-center text-3xl lg:text-5xl font-semibold mb-10;
+}
+
+@media (max-width: 1024px) {
+  .section-container {
+    margin-bottom: 6em;
+  }
+  .hero-container {
+    margin-top: 8em;
+  }
 }

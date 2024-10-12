@@ -39,6 +39,10 @@ body {
   margin-bottom: 12em;
 }
 
+.section-container:last-child {
+  margin-bottom: 6em;
+}
+
 .section-title {
   @apply text-center text-3xl lg:text-5xl font-semibold mb-10;
 }
@@ -47,6 +51,7 @@ body {
   .section-container {
     margin-bottom: 6em;
   }
+
   .hero-container {
     margin-top: 8em;
   }

@@ -10,8 +10,8 @@ export default function Home() {
       <Navbar />
       <div className="container mx-auto">
         <section id="hero" className="hero-container section-container"><HeroSection /></section>
-        <section id="about" className="section-container"><AboutSection /></section>
-        <section id="projects" className="section-container"><ProjectSection /></section>
+        <section id="about" className="section-container" style={{ scrollMarginTop: '130px' }}><AboutSection /></section>
+        <section id="projects" className="section-container" style={{ scrollMarginTop: '130px' }}><ProjectSection /></section>
         {/* <section id="contact" style={{ marginBottom: '6em' }}><EmailSection /></section> */}
       </div>
       <Footer />

@@ -17,8 +17,8 @@ export interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ imageUrl, title, description, technologiesUsed, githubUrl, previewUrl }) => {
   return (
     <div className="card bg-base-100 shadow-xl">
-      <figure className="group relative" style={{ height: '250px' }}>
-        <Image src={imageUrl} alt={title} width={500} height={300} />
+      <figure className="group relative object-cover">
+        <Image src={imageUrl} alt={title} width={400} height={200} />
         {/* Overlay */}
         {(githubUrl || previewUrl) && <div className={`hidden group-hover:flex group-hover:bg-opacity-80 ${styles.overlay}`}>
           {githubUrl && <Link href={githubUrl} target="_blank" className={`group/link mr-5 ${styles.overlay_link}`}>

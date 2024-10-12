@@ -24,10 +24,15 @@ const socialLinks: NavbarLinkProps[] = [
 const Navbar = () => {
   const [isNavbarOpened, setIsNavbarOpened] = useState(false);
 
+  const onScrollBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.history.replaceState({}, document.title, '/');
+  }
+
   return (
     <nav className={`${styles.navbar_container}`}>
       <div className={`${styles.navbar}`}>
-        <Link href={'/'} className={`${styles.navbar_logo}`}><FaCode /></Link>
+        <button onClick={onScrollBackToTop} className={`${styles.navbar_logo}`}><FaCode /></button>
 
         {/* Full Navbar Menu */}
         <div className='hidden md:block md:w-auto' id='navbar'>

@@ -17,10 +17,10 @@ const HeroSection = () => {
         {/* Personal Portrait */}
         <div className="mb-10 lg:mb-0">
           <div className="flex flex-col justify-center items-center">
-            <Image className="rounded-badge w-[280px] h-[280px] shadow-2xl" src="/images/profile-picture.jpg" alt="Portrait of Ivan Tan" width={300} height={500} />
-            <div className="flex flex-col justify-center items-start text-neutral-content mt-5 text-lg font-medium">
-              <div className="mb-2 flex items-center"><FaWhatsapp className="inline mr-4 h-6 w-6" />{CONSTANTS.socialLinks.PhoneNumber}</div>
-              <div className="flex items-center"><FaEnvelope className="inline mr-4 h-6 w-6" />{CONSTANTS.socialLinks.Email}</div>
+            <Image className="rounded-3xl w-[280px] h-[280px] shadow-xl" src="/images/profile-picture.jpg" alt="Portrait of Ivan Tan" width={300} height={500} />
+            <div className="flex flex-col justify-center items-center text-neutral-content mt-5 text-lg font-medium">
+              <div className="mb-2 flex items-center"><FaWhatsapp className="inline mr-3 h-6 w-6" />{CONSTANTS.socialLinks.PhoneNumber}</div>
+              <div className="flex items-center"><FaEnvelope className="inline mr-3 h-6 w-6" />{CONSTANTS.socialLinks.Email}</div>
             </div>
           </div>
         </div>

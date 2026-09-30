@@ -3,56 +3,155 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0b1220;
+  --paper: #f7f5f0;
+  --paper-raised: #ffffff;
+  --steel: #3a5a78;
+  --signal: #c7622a;
+  --text-muted: #5c6773;
+  --border: #e3dfd6;
+  --border-strong: #d6d1c4;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    --ink: #f2efe9;
+    --paper: #0e1420;
+    --paper-raised: #161d2c;
+    --steel: #8fb4d9;
+    --signal: #e08a52;
+    --text-muted: #93a0af;
+    --border: #253046;
+    --border-strong: #2e3b54;
+    color-scheme: dark;
   }
+}
+
+:root[data-theme="dark"] {
+  --ink: #f2efe9;
+  --paper: #0e1420;
+  --paper-raised: #161d2c;
+  --steel: #8fb4d9;
+  --signal: #e08a52;
+  --text-muted: #93a0af;
+  --border: #253046;
+  --border-strong: #2e3b54;
+  color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::selection {
+  background: var(--signal);
+  color: #fff;
 }
 
-.hero-container {
-  @apply flex flex-col justify-center items-center;
-  margin-top: 12em;
-}
-
-.section-container {
-  margin-bottom: 12em;
-}
-
-.section-container:last-child {
-  margin-bottom: 6em;
-}
-
-.section-title {
-  @apply text-center text-3xl lg:text-5xl font-semibold mb-10;
-}
-
-@media (max-width: 1024px) {
-  .section-container {
-    margin-bottom: 6em;
+@layer components {
+  /* Mask-based icons (multi-source, single-color SVGs tinted via currentColor-like
+     background-color) — CSS masks have no Tailwind utility equivalent. */
+  .social-icon,
+  .skill-glyph {
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
   }
 
-  .hero-container {
-    margin-top: 8em;
+  /* ToolIcon light/dark variant swap — driven by the same data-theme attribute
+     as the CSS custom properties above, so it belongs alongside them. */
+  .tool-icon-light {
+    display: block;
+  }
+  .tool-icon-dark {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .tool-icon-light {
+      display: none;
+    }
+    :root:not([data-theme="light"]) .tool-icon-dark {
+      display: block;
+    }
+  }
+  :root[data-theme="dark"] .tool-icon-light {
+    display: none;
+  }
+  :root[data-theme="dark"] .tool-icon-dark {
+    display: block;
+  }
+
+  /* Floating tooltip (src/components/ui/Tooltip.tsx) — position is set inline from
+     a live getBoundingClientRect(), so the transform/transition math lives here
+     rather than as utilities. */
+  .floating-tooltip {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% + 4px));
+    transition:
+      opacity 0.1s ease,
+      transform 0.1s ease;
+  }
+  .floating-tooltip.visible {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+  .floating-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--ink);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .floating-tooltip {
+      transition: none;
+    }
+  }
+
+  /* Tag/pill accent variant needs color-mix() for the border, which arbitrary
+     values can't express as a static utility. */
+  .tag-accent {
+    color: var(--signal);
+    border-color: color-mix(in srgb, var(--signal) 45%, var(--border-strong));
+  }
+
+  /* Chip background needs color-mix() against a CSS custom property. */
+  .chip-bg {
+    background: color-mix(in srgb, var(--steel) 8%, transparent);
+  }
+
+  /* Marquee edge fade — mask-image gradient has no utility equivalent. */
+  .marquee-fade {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  /* Experience timeline's small circle marker — needs a generated ::before,
+     which content: "" can't be expressed as a static utility. */
+  .timeline-dot::before {
+    content: "";
+    position: absolute;
+    left: -6px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--steel);
   }
 }

@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
@@ -10,22 +9,41 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        ink: "var(--ink)",
+        paper: "var(--paper)",
+        "paper-raised": "var(--paper-raised)",
+        steel: "var(--steel)",
+        signal: "var(--signal)",
+        muted: "var(--text-muted)",
+        border: "var(--border)",
+        "border-strong": "var(--border-strong)",
+      },
+      fontFamily: {
+        fraunces: ["var(--font-fraunces)", "serif"],
+        mono: ["var(--font-plex-mono)", "monospace"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+      },
+      keyframes: {
+        "scroll-right": {
+          from: { transform: "translateX(-50%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "scroll-left": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        rise: {
+          from: { opacity: "0", transform: "translateY(6px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "scroll-right": "scroll-right 22s linear infinite",
+        "scroll-left": "scroll-left 22s linear infinite",
+        rise: "rise 0.28s ease",
       },
     },
-    // colors: {
-    //   ...colors,
-    //   primary: colors.purple,
-    //   secondary: colors.pink,
-    //   'app-gray-1': '#121212',
-    //   'app-gray-2': '#33353F'
-    // },
-
   },
-  daisyui: {
-    themes: ['night']
-  },
-  plugins: [require("daisyui")],
+  plugins: [],
 };
 export default config;

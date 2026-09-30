@@ -15,7 +15,7 @@ export const profile = {
   github: "https://github.com/IvanTan02",
   linkedin: "https://www.linkedin.com/in/ivantan02/",
   instagram: "https://www.instagram.com/ivantan02/",
-  resumeUrl: "https://ivantan-portfolio.s3.ap-southeast-2.amazonaws.com/IvanTan-Resume.pdf",
+  resumeUrl: "/files/ivantan_resume_20260926.pdf",
   photo: "/images/profile-picture.jpg",
 };
 

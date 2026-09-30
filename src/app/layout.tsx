@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -23,9 +24,34 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
 });
 
+const SITE_URL = "https://ivantan.vercel.app";
+const SITE_TITLE = "Ivan Tan — Software Engineer";
+const SITE_DESCRIPTION =
+  "Portfolio of Ivan Tan, a Software Engineer building backend systems for national payment infrastructure at PayNet.";
+
 export const metadata: Metadata = {
-  title: "Portfolio | Ivan Tan",
-  description: "Portfolio website of Ivan Tan — Software Engineer.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | Ivan Tan",
+  },
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_TITLE,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -39,7 +65,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

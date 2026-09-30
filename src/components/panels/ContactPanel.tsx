@@ -23,8 +23,7 @@ export default function ContactPanel() {
         <a
           className={`${btnBase} hover:border-steel hover:text-steel`}
           href={profile.resumeUrl}
-          target="_blank"
-          rel="noreferrer"
+          download
         >
           Download Resume
         </a>

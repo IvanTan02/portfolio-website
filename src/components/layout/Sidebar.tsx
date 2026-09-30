@@ -44,11 +44,11 @@ export default function Sidebar() {
     <aside className="sticky top-[env(safe-area-inset-top,0px)] flex h-dvh w-[300px] shrink-0 flex-col gap-8 self-start overflow-y-auto border-r border-border p-7 max-[780px]:static max-[780px]:h-auto max-[780px]:w-full max-[780px]:flex-row max-[780px]:flex-wrap max-[780px]:items-center max-[780px]:gap-5 max-[780px]:border-b max-[780px]:border-r-0 max-[780px]:border-border max-[780px]:p-5">
       <div className="max-[780px]:min-w-[200px] max-[780px]:flex-1">
         <Image
-          className="mb-4 h-16 w-16 rounded-full border border-border-strong object-cover"
+          className="mb-5 h-28 w-28 rounded-full border-2 border-border-strong object-cover shadow-[0_6px_20px_-8px_rgba(11,18,32,0.35)]"
           src={profile.photo}
           alt={`Portrait of ${profile.name}`}
-          width={64}
-          height={64}
+          width={112}
+          height={112}
         />
         <p className="mb-1.5 font-fraunces text-[1.35rem] font-semibold tracking-[-0.01em]">
           {profile.name}
@@ -60,12 +60,14 @@ export default function Sidebar() {
         <div className="mb-3.5 flex gap-2">
           {socialLinks.map((social) => {
             const isMailto = social.href.startsWith("mailto:");
+            const isDownload = social.icon.kind === "glyph" && social.icon.key === "document";
             return (
               <Tooltip label={social.label} key={`${social.icon.kind}-${social.icon.key}`}>
                 <a
                   href={social.href}
-                  target={isMailto ? undefined : "_blank"}
-                  rel={isMailto ? undefined : "noreferrer"}
+                  target={isMailto || isDownload ? undefined : "_blank"}
+                  rel={isMailto || isDownload ? undefined : "noreferrer"}
+                  download={isDownload}
                   aria-label={social.label}
                   className="flex h-8 w-8 items-center justify-center rounded-[9px] border border-border-strong bg-paper-raised transition-[border-color,transform] duration-150 hover:-translate-y-px hover:border-steel focus-visible:-translate-y-px focus-visible:border-steel [&_.skill-glyph]:h-[15px] [&_.skill-glyph]:w-[15px] [&_.skill-glyph]:shrink-0 [&_.skill-glyph]:bg-steel [&_.social-icon]:h-[15px] [&_.social-icon]:w-[15px] [&_.social-icon]:shrink-0 [&_.social-icon]:bg-steel"
                 >

@@ -3,58 +3,84 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0b1220;
-  --paper: #f7f5f0;
-  --paper-raised: #ffffff;
-  --steel: #3a5a78;
-  --signal: #c7622a;
-  --text-muted: #5c6773;
-  --border: #e3dfd6;
-  --border-strong: #d6d1c4;
+  --ink: 31 35 43;
+  --paper: 242 239 232;
+  --paper-raised: 250 248 244;
+  --steel: 58 90 120;
+  --signal: 199 98 42;
+  --text-muted: 99 107 117;
+  --border: 223 218 207;
+  --border-strong: 209 203 189;
+  --paper-overlay: rgba(242, 239, 232, 0.88);
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --ink: #f2efe9;
-    --paper: #0e1420;
-    --paper-raised: #161d2c;
-    --steel: #8fb4d9;
-    --signal: #e08a52;
-    --text-muted: #93a0af;
-    --border: #253046;
-    --border-strong: #2e3b54;
+    --ink: 242 239 233;
+    --paper: 14 20 32;
+    --paper-raised: 22 29 44;
+    --steel: 143 180 217;
+    --signal: 224 138 82;
+    --text-muted: 147 160 175;
+    --border: 37 48 70;
+    --border-strong: 46 59 84;
+    --paper-overlay: rgba(14, 20, 32, 0.9);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --ink: #f2efe9;
-  --paper: #0e1420;
-  --paper-raised: #161d2c;
-  --steel: #8fb4d9;
-  --signal: #e08a52;
-  --text-muted: #93a0af;
-  --border: #253046;
-  --border-strong: #2e3b54;
+  --ink: 242 239 233;
+  --paper: 14 20 32;
+  --paper-raised: 22 29 44;
+  --steel: 143 180 217;
+  --signal: 224 138 82;
+  --text-muted: 147 160 175;
+  --border: 37 48 70;
+  --border-strong: 46 59 84;
+  --paper-overlay: rgba(14, 20, 32, 0.9);
   color-scheme: dark;
 }
 
 html {
   scroll-behavior: smooth;
   height: 100%;
+  overscroll-behavior: none;
 }
 
 body {
+  position: relative;
   height: 100%;
-  background: var(--paper);
-  color: var(--ink);
+  overscroll-behavior: none;
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20px;
+  z-index: -1;
+  background-image: url("/images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  transform: scale(1.02);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--paper-overlay);
+}
+
 ::selection {
-  background: var(--signal);
+  background: rgb(var(--signal));
   color: #fff;
 }
 
@@ -115,7 +141,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     border: 4px solid transparent;
-    border-top-color: var(--ink);
+    border-top-color: rgb(var(--ink));
   }
   @media (prefers-reduced-motion: reduce) {
     .floating-tooltip {
@@ -126,19 +152,30 @@ body {
   /* Tag/pill accent variant needs color-mix() for the border, which arbitrary
      values can't express as a static utility. */
   .tag-accent {
-    color: var(--signal);
-    border-color: color-mix(in srgb, var(--signal) 45%, var(--border-strong));
+    color: rgb(var(--signal));
+    border-color: color-mix(in srgb, rgb(var(--signal)) 45%, rgb(var(--border-strong)));
   }
 
   /* Chip background needs color-mix() against a CSS custom property. */
   .chip-bg {
-    background: color-mix(in srgb, var(--steel) 8%, transparent);
+    background: color-mix(in srgb, rgb(var(--steel)) 8%, transparent);
   }
 
   /* Marquee edge fade — mask-image gradient has no utility equivalent. */
   .marquee-fade {
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  /* Panel edge fade — softens the sidebar/main content's outer edge into the
+     blurred background photo instead of a hard cutoff. */
+  .fade-edge-left {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 48px);
+    mask-image: linear-gradient(90deg, transparent, #000 48px);
+  }
+  .fade-edge-right {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent);
   }
 
   /* Experience timeline's small circle marker — needs a generated ::before,
@@ -151,7 +188,7 @@ body {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: var(--paper);
-    border: 2px solid var(--steel);
+    background: rgb(var(--paper));
+    border: 2px solid rgb(var(--steel));
   }
 }

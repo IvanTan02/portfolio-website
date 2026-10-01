@@ -3,7 +3,7 @@ import { projects } from "@/content/projects";
 export default function ProjectsPanel() {
   return (
     <section className="animate-rise">
-      <h1 className="mb-8 font-fraunces text-[clamp(1.5rem,3vw,1.9rem)] font-semibold text-balance">
+      <h1 className="mb-8 text-balance font-fraunces text-[clamp(1.5rem,3vw,1.9rem)] font-semibold">
         Projects
       </h1>
       <div className="flex flex-col gap-4">

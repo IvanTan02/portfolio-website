@@ -10,29 +10,27 @@ export default async function Icon() {
   const photoSrc = `data:image/jpeg;base64,${photoData.toString("base64")}`;
 
   return new ImageResponse(
-    (
-      <div
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        background: "#0b1220",
+        borderRadius: "50%",
+        padding: 3,
+      }}
+    >
+      <img
+        src={photoSrc}
+        alt=""
+        width={58}
+        height={58}
         style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          background: "#0b1220",
           borderRadius: "50%",
-          padding: 3,
+          objectFit: "cover",
         }}
-      >
-        <img
-          src={photoSrc}
-          alt=""
-          width={58}
-          height={58}
-          style={{
-            borderRadius: "50%",
-            objectFit: "cover",
-          }}
-        />
-      </div>
-    ),
+      />
+    </div>,
     { ...size }
   );
 }

@@ -7,48 +7,16 @@ import { SocialIcon } from "@/components/icons/SocialIcon";
 import { SkillGlyph } from "@/components/icons/SkillGlyphs";
 import Tooltip from "@/components/ui/Tooltip";
 
-function ToolsMarquee() {
-  return (
-    <div className="max-[780px]:hidden">
-      <p className="mb-4 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted">
-        Tools &amp; platforms
-      </p>
-      <div className="marquee-fade flex flex-col gap-3 overflow-hidden">
-        <div className="flex w-max gap-2 animate-scroll-right hover:[animation-play-state:paused]">
-          {[...toolsMarquee.top, ...toolsMarquee.top].map((id, i) => (
-            <span
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] border border-border-strong bg-paper-raised shadow-[0_3px_10px_-6px_rgba(11,18,32,0.25)] [&>span]:h-full [&>span]:w-full [&_img]:h-[17px] [&_img]:w-[17px] [&_svg]:h-[17px] [&_svg]:w-[17px]"
-              key={`${id}-${i}`}
-            >
-              <ToolIcon tool={TOOLS[id]} />
-            </span>
-          ))}
-        </div>
-        <div className="flex w-max gap-2 animate-scroll-left hover:[animation-play-state:paused]">
-          {[...toolsMarquee.bottom, ...toolsMarquee.bottom].map((id, i) => (
-            <span
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] border border-border-strong bg-paper-raised shadow-[0_3px_10px_-6px_rgba(11,18,32,0.25)] [&>span]:h-full [&>span]:w-full [&_img]:h-[17px] [&_img]:w-[17px] [&_svg]:h-[17px] [&_svg]:w-[17px]"
-              key={`${id}-${i}`}
-            >
-              <ToolIcon tool={TOOLS[id]} />
-            </span>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Sidebar() {
   return (
-    <aside className="sticky top-[env(safe-area-inset-top,0px)] flex h-dvh w-[300px] shrink-0 flex-col gap-8 self-start overflow-y-auto border-r border-border p-7 max-[780px]:static max-[780px]:h-auto max-[780px]:w-full max-[780px]:flex-row max-[780px]:flex-wrap max-[780px]:items-center max-[780px]:gap-5 max-[780px]:border-b max-[780px]:border-r-0 max-[780px]:border-border max-[780px]:p-5">
-      <div className="max-[780px]:min-w-[200px] max-[780px]:flex-1">
+    <aside className="sticky top-[calc(env(safe-area-inset-top,0px)+64px)] flex max-h-[calc(100dvh-64px)] w-[300px] shrink-0 flex-col gap-8 overflow-y-auto border-r border-dashed border-border bg-paper/45 p-8 max-[780px]:static max-[780px]:max-h-none max-[780px]:w-full max-[780px]:flex-row max-[780px]:flex-wrap max-[780px]:items-center max-[780px]:gap-5 max-[780px]:bg-paper max-[780px]:p-5">
+      <div className="flex flex-col items-center text-center max-[780px]:min-w-[200px] max-[780px]:flex-1">
         <Image
-          className="mb-5 h-28 w-28 rounded-full border-2 border-border-strong object-cover shadow-[0_6px_20px_-8px_rgba(11,18,32,0.35)]"
+          className="mb-5 h-32 w-32 rounded-full border-2 border-border object-cover shadow-[0_6px_20px_-8px_rgba(11,18,32,0.35)]"
           src={profile.photo}
           alt={`Portrait of ${profile.name}`}
-          width={112}
-          height={112}
+          width={128}
+          height={128}
         />
         <p className="mb-1.5 font-fraunces text-[1.35rem] font-semibold tracking-[-0.01em]">
           {profile.name}
@@ -114,5 +82,37 @@ export default function Sidebar() {
         © {new Date().getFullYear()} {profile.name.split(" ")[0]} {profile.name.split(" ")[1]}
       </div>
     </aside>
+  );
+}
+
+function ToolsMarquee() {
+  return (
+    <div className="max-[780px]:hidden">
+      <p className="mb-4 font-mono text-[0.68rem] uppercase tracking-[0.08em] text-muted">
+        Tools &amp; platforms
+      </p>
+      <div className="marquee-fade flex flex-col gap-3 overflow-hidden">
+        <div className="flex w-max animate-scroll-right gap-2 hover:[animation-play-state:paused]">
+          {[...toolsMarquee.top, ...toolsMarquee.top].map((id, i) => (
+            <span
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] border border-border-strong shadow-[0_3px_10px_-6px_rgba(11,18,32,0.25)] [&>span]:h-full [&>span]:w-full [&_img]:h-[17px] [&_img]:w-[17px] [&_svg]:h-[17px] [&_svg]:w-[17px]"
+              key={`${id}-${i}`}
+            >
+              <ToolIcon tool={TOOLS[id]} />
+            </span>
+          ))}
+        </div>
+        <div className="flex w-max animate-scroll-left gap-2 hover:[animation-play-state:paused]">
+          {[...toolsMarquee.bottom, ...toolsMarquee.bottom].map((id, i) => (
+            <span
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[9px] border border-border-strong shadow-[0_3px_10px_-6px_rgba(11,18,32,0.25)] [&>span]:h-full [&>span]:w-full [&_img]:h-[17px] [&_img]:w-[17px] [&_svg]:h-[17px] [&_svg]:w-[17px]"
+              key={`${id}-${i}`}
+            >
+              <ToolIcon tool={TOOLS[id]} />
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }

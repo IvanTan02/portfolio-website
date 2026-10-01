@@ -53,7 +53,7 @@ export default function Tooltip({ label, children }: { label: string; children: 
         createPortal(
           <span
             className={`floating-tooltip pointer-events-none fixed z-[9999] whitespace-nowrap rounded-md bg-ink px-2.5 py-1.5 font-mono text-[0.7rem] text-paper${
-              visible ? " visible" : ""
+              visible ? "visible" : ""
             }`}
             style={{ top: position.top, left: position.left }}
             role="tooltip"

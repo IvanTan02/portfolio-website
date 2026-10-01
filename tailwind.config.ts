@@ -9,14 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "var(--ink)",
-        paper: "var(--paper)",
-        "paper-raised": "var(--paper-raised)",
-        steel: "var(--steel)",
-        signal: "var(--signal)",
-        muted: "var(--text-muted)",
-        border: "var(--border)",
-        "border-strong": "var(--border-strong)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        paper: "rgb(var(--paper) / <alpha-value>)",
+        "paper-raised": "rgb(var(--paper-raised) / <alpha-value>)",
+        steel: "rgb(var(--steel) / <alpha-value>)",
+        signal: "rgb(var(--signal) / <alpha-value>)",
+        muted: "rgb(var(--text-muted) / <alpha-value>)",
+        border: "rgb(var(--border) / <alpha-value>)",
+        "border-strong": "rgb(var(--border-strong) / <alpha-value>)",
       },
       fontFamily: {
         fraunces: ["var(--font-fraunces)", "serif"],

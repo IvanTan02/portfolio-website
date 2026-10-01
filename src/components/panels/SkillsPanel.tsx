@@ -13,12 +13,15 @@ function SkillIcon({ iconKey }: { iconKey: string }) {
 export default function SkillsPanel() {
   return (
     <section className="animate-rise">
-      <h1 className="mb-8 font-fraunces text-[clamp(1.5rem,3vw,1.9rem)] font-semibold text-balance">
+      <h1 className="mb-8 text-balance font-fraunces text-[clamp(1.5rem,3vw,1.9rem)] font-semibold">
         Skills
       </h1>
       <div className="grid grid-cols-2 gap-[18px] max-[560px]:grid-cols-1">
         {skillCategories.map((category) => (
-          <div className="rounded-[10px] border border-border bg-paper-raised p-5" key={category.title}>
+          <div
+            className="rounded-[10px] border border-border bg-paper-raised p-5"
+            key={category.title}
+          >
             <h3 className="mb-3 font-mono text-[0.7rem] uppercase tracking-[0.06em] text-steel">
               {category.title}
             </h3>

@@ -16,95 +16,93 @@ export default async function OpengraphImage() {
   const photoSrc = `data:image/jpeg;base64,${photoData.toString("base64")}`;
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        background: PAPER,
+        padding: 64,
+      }}
+    >
       <div
         style={{
-          width: "100%",
-          height: "100%",
           display: "flex",
-          background: PAPER,
-          padding: 64,
+          flexDirection: "column",
+          justifyContent: "center",
+          flex: 1,
+          paddingRight: 48,
         }}
       >
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            flex: 1,
-            paddingRight: 48,
+            alignItems: "center",
+            gap: 10,
+            marginBottom: 28,
           }}
         >
           <div
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              marginBottom: 28,
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+              background: SIGNAL,
             }}
-          >
-            <div
-              style={{
-                width: 10,
-                height: 10,
-                borderRadius: "50%",
-                background: SIGNAL,
-              }}
-            />
-            <span
-              style={{
-                fontSize: 22,
-                letterSpacing: 2,
-                textTransform: "uppercase",
-                color: STEEL,
-                fontWeight: 600,
-              }}
-            >
-              Software Engineer
-            </span>
-          </div>
-          <div
+          />
+          <span
             style={{
-              fontSize: 76,
-              fontWeight: 700,
-              color: INK,
-              lineHeight: 1.05,
-              marginBottom: 24,
+              fontSize: 22,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              color: STEEL,
+              fontWeight: 600,
             }}
           >
-            Ivan Tan
-          </div>
-          <div
-            style={{
-              fontSize: 30,
-              color: MUTED,
-              lineHeight: 1.4,
-              maxWidth: 560,
-            }}
-          >
-            Building backend systems for national payment infrastructure at PayNet.
-          </div>
+            Software Engineer
+          </span>
         </div>
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
+            fontSize: 76,
+            fontWeight: 700,
+            color: INK,
+            lineHeight: 1.05,
+            marginBottom: 24,
           }}
         >
-          <img
-            src={photoSrc}
-            alt=""
-            width={420}
-            height={420}
-            style={{
-              borderRadius: 32,
-              objectFit: "cover",
-              border: `4px solid ${INK}`,
-            }}
-          />
+          Ivan Tan
+        </div>
+        <div
+          style={{
+            fontSize: 30,
+            color: MUTED,
+            lineHeight: 1.4,
+            maxWidth: 560,
+          }}
+        >
+          Building backend systems for national payment infrastructure at PayNet.
         </div>
       </div>
-    ),
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src={photoSrc}
+          alt=""
+          width={420}
+          height={420}
+          style={{
+            borderRadius: 32,
+            objectFit: "cover",
+            border: `4px solid ${INK}`,
+          }}
+        />
+      </div>
+    </div>,
     { ...size }
   );
 }
